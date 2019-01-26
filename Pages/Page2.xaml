@@ -1,0 +1,47 @@
+﻿<UserControl
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Microsoft.Samples.Kinect.ControlsBasics" x:Class="Microsoft.Samples.Kinect.ControlsBasics.Page2" 
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+    
+      MinHeight="200" MinWidth="300" 
+	  >
+
+    <Grid Width="1000" RenderTransformOrigin="0.505,0.495">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="507*"/>
+            <ColumnDefinition Width="406*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="32*"/>
+        </Grid.RowDefinitions>
+        <xctk:TimePicker  Name="timipicker1" Width="350" Height="55" TextAlignment="Left" Margin="-180,40,46,30" Grid.Row="0" FontSize="16"/>
+        <Button Content="SET ALARM" HorizontalAlignment="Left" Height="80"  Width="150" Background="RoyalBlue" BorderThickness="2" FontFamily="verdana" FontSize="20" Foreground="#fff" FontWeight="Bold" BorderBrush="#2e6da4"  VerticalAlignment="Top" Margin="-10,6,0,0" Grid.Row="1" Click="Button_Click_1"/>
+        <Button Name="StopAlarm" Content="STOP ALARM" Visibility="Visible" HorizontalAlignment="Left" Height="80"  Width="170" Background="OrangeRed" BorderThickness="2" FontFamily="verdana" FontSize="20" Foreground="#fff" FontWeight="Bold" BorderBrush="#2e6da4"  VerticalAlignment="Top" Margin="150,6,0,0" Grid.Row="1" Click="Button_Click_2"/>
+
+        <DataGrid x:Name="Imported1" Uid="Imported1" SelectionMode="Single"  Margin="421,100,-38,203" FontSize="20" RowHeight="40" ItemsSource="{Binding Source=list}" 
+                  Width="Auto" AutoGenerateColumns="False" CanUserResizeColumns="True" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Visibility="Visible"
+                  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding  Path=Id}" IsReadOnly="True"
+                                    Header="Alarm Id" Width="SizeToHeader" />
+                <DataGridTextColumn Header="Alarm Time" Binding="{Binding AlarmTime, StringFormat={}{0:hh:mm:ss tt}}" />
+                <DataGridTextColumn Header="Daily" Binding="{Binding Repeat}" />
+                <DataGridTemplateColumn Header="Action">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete" Click="DeleteButton_Click"  Height="40" Width="250" Background="RoyalBlue" BorderThickness="2" FontFamily="verdana" FontSize="20" Foreground="#fff" FontWeight="Bold" BorderBrush="#2e6da4" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <CheckBox Content=" DAILY" Name="chckbox1" FontSize="20" FontWeight="Bold" Foreground="White"  Grid.Row="0" HorizontalAlignment="Left" Margin="3,219,0,0" VerticalAlignment="Top" Height="31" Width="100"/>
+
+    </Grid>
+</UserControl>

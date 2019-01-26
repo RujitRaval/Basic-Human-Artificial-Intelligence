@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="Microsoft.Samples.Kinect.ControlsBasics.ButtonSample"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" Height="799" Width="900" Unloaded="UserControl_Unloaded"
+	  >
+
+    <Grid Margin="150,0,-500,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="53*"/>
+            <ColumnDefinition Width="197*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Page title -->
+        <TextBlock x:Name="pageTitle" Foreground="White" Margin="-326,10,326,10" Grid.ColumnSpan="2"><Run Language="en-in" Text=" "/> Home Automation</TextBlock>
+
+        <Grid Grid.Row="1" Margin="-326,0,326,0" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="11*"/>
+                <RowDefinition Height="237*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*" />
+                <ColumnDefinition Width="0.5*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Single Button -->
+            <StackPanel Grid.Column="0" Orientation="Vertical" Margin="10 0 0 0" Grid.RowSpan="2">
+                <Label Content="FAN" Margin="172,20,77,0" FontWeight="Bold" OpacityMask="#FFFD0909" FontSize="18" Foreground="White"/>
+                <Button x:Name="btn1" Content="ON" Height="80" Width="300" Click="btn1_Click" FontSize="36" FontWeight="Bold" FontFamily="Myriad Hebrew" BorderBrush="{x:Null}" Background="#FF4169E1" Foreground="Black" BorderThickness="0"/>
+                <Label Content="TV" Margin="172,20,77,0" FontWeight="Bold" OpacityMask="#FFFD0909" FontSize="18" Foreground="White"/>
+                <Button x:Name="btn2" Content="ON" Height="80" Width="300" Click="btn2_Click" FontSize="36" FontWeight="Bold" FontFamily="Myriad Hebrew" BorderBrush="{x:Null}" Background="#FF4169E1" Foreground="Black" BorderThickness="0"/>
+            </StackPanel>
+
+            <!-- Stacked Buttons -->
+            <StackPanel Grid.Column="1" Orientation="Vertical" Margin="10 0 0 0" Grid.RowSpan="2">
+                <Label Content="BULB" Margin="172,20,77,0" FontWeight="Bold" OpacityMask="#FFFD0909" FontSize="18" Foreground="White"/>
+                <Button x:Name="btn3" Content="ON" Height="80" Width="300" Click="btn3_Click" FontSize="36" FontWeight="Bold" FontFamily="Myriad Hebrew" BorderBrush="{x:Null}" Background="#FF4169E1" Foreground="Black" BorderThickness="0" />
+                <Label Content="PC" Margin="172,20,77,0" FontWeight="Bold" OpacityMask="#FFFD0909" FontSize="18" Foreground="White"/>
+                <Button x:Name="btn4" Content="ON" Height="80" Width="300" Click="btn4_Click" FontSize="36" FontWeight="Bold" FontFamily="Myriad Hebrew" BorderBrush="{x:Null}" Background="#FF4169E1" Foreground="Black" BorderThickness="0"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>
