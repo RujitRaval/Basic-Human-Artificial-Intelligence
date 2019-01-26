@@ -1,0 +1,91 @@
+﻿<Window x:Class="Microsoft.Samples.Kinect.ControlsBasics.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:k="http://schemas.microsoft.com/kinect/2014"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Microsoft.Samples.Kinect.ControlsBasics"
+        Name="ControlsBasicsWindow"
+        Title="Controls Basics"
+        mc:Ignorable="d"
+        d:DesignWidth="1200"
+        d:DesignHeight="700"
+        MinWidth="500"
+        MinHeight="700"
+        FontFamily="Segoe UI"
+        WindowState="Maximized" Loaded="ControlsBasicsWindow_Loaded" WindowStyle="None"
+        >
+
+    <k:KinectRegion x:Name="kinectRegion">
+        <Grid Background="Black">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Margin="10,0">
+                <!--<Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>-->
+
+
+                <k:KinectUserViewer Grid.Column="1" Height="100" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                <!--<Label Content="Basic Human Artificial Intellegence" Grid.Column="1" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" FontSize="60" FontWeight="Bold"/>-->
+
+                <Image Margin="2,10,21,0" Source="/Images/Logo.jpg" HorizontalAlignment="Left" Height="254" Grid.Column="1" Grid.Row="0" VerticalAlignment="Top"/>
+                <Button x:Name="backButton" Visibility="Visible" Grid.Row="0" Style="{StaticResource BackButtonStyle}" Click="GoBack" Width="119" Margin="75,0,0,56" HorizontalAlignment="Left" RenderTransformOrigin="0.494,-2.131" />
+                <TextBlock FontSize="40" Width="800" Name="QNS" Margin="-2,276,-140,-120" FontFamily="Digital Counter 7" Height="80" HorizontalAlignment="Left">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Aqua" Offset="0.52"/>
+                            <GradientStop Color="White"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+
+                    <TextBlock.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+
+                        </LinearGradientBrush>
+                    </TextBlock.Background>
+                </TextBlock>
+                <TextBlock FontSize="60" Width="400" Name="tbk_clock" Margin="-2,276,-140,-120" FontFamily="Digital Counter 7" Height="80" HorizontalAlignment="Right">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Aqua" Offset="0.52"/>
+                            <GradientStop Color="White"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+
+                    <TextBlock.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+
+                        </LinearGradientBrush>
+                    </TextBlock.Background>
+                </TextBlock>
+            </Grid>
+
+
+            <ContentControl Grid.Row="1" x:Name="navigationRegion">
+                <Grid x:Name="kinectRegionGrid" Margin="10,150,10,20" Background="Beige">
+                    <ScrollViewer Grid.Row="0" Name="scrollViewer" 
+                                  HorizontalScrollBarVisibility="Auto"
+                                  VerticalScrollBarVisibility="Disabled" 
+                                  Height="259"
+                                  k:KinectRegion.IsScrollInertiaEnabled="true" VerticalAlignment="Bottom" Margin="-9,-10,9,5" >
+                        <ItemsControl Grid.Row="0" Name="itemsControl" ItemTemplate="{StaticResource Kinect250x250ItemTemplate}" Foreground="Blue" Button.Click="ButtonClick" Height="228">
+                            <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                            <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Vertical" Margin="5,0,75,0"/>
+
+                            </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+
+                        </ItemsControl>
+                    </ScrollViewer>
+
+                </Grid>
+            </ContentControl>
+        </Grid>
+    </k:KinectRegion>
+</Window>
